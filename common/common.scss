@@ -1,0 +1,30 @@
+.inline-copy {
+  cursor: pointer;
+  border-radius: 0.25em;
+  transition: background-color 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--tertiary);
+  }
+
+  &.copied {
+    background-color: var(--success);
+    color: var(--secondary);
+  }
+}
+
+// Enlarge the tap target without changing the inline layout.
+@media (pointer: coarse) {
+  .inline-copy {
+    position: relative;
+  }
+
+  .inline-copy::before {
+    content: "";
+    position: absolute;
+    inset: -4px;
+  }
+}
